@@ -10,3 +10,6 @@ steps:
     python -m pip install --upgrade pip
     pip install -r requirements.txt
   displayName: 'Install dependencies'
+- bash: echo Agent OS $(Agent.OS)
+- bash: echo $(System.DefaultWorkingDirectory)
+- bash: ls -R $(System.DefaultWorkingDirectory)
