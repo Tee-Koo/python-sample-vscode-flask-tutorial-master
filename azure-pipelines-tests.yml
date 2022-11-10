@@ -2,10 +2,10 @@ pool:
   vmImage: ubuntu-latest
 trigger: none
 steps:
-  - task: Npm@1
-    inputs:
-      command: 'custom'
-      customcommand: 'install --production'
+  # - task: Npm@1
+  #   inputs:
+  #     command: 'custom'
+  #     customcommand: 'install --production'
   - script: |
       npm install
       npm test
