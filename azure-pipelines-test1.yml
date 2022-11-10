@@ -30,7 +30,9 @@ steps:
 # Using the task syntax
 - task: CmdLine@2
   inputs:
-    script: az pipelines variable-group list --output table
+    script: |
+      az devops configure --defaults organization=https://dev.azure.com/AD3484/
+      az pipelines variable-group list --output table
   env:
     AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
   displayName: 'List variable groups using the command line task'
