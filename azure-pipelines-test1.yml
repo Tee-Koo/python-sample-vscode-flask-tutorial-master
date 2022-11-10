@@ -20,3 +20,17 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFiles: "**/TEST-*.xml"
+
+# Using the script shortcut syntax
+- script: az pipelines variable-group list --output table
+  env:
+    AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
+  displayName: 'List variable groups using the script step'
+
+# Using the task syntax
+- task: CmdLine@2
+  inputs:
+    script: az pipelines variable-group list --output table
+  env:
+    AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
+  displayName: 'List variable groups using the command line task'
