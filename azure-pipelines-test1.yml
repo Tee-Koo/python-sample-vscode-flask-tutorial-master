@@ -12,3 +12,11 @@ steps:
 - bash: echo Agent OS $(Agent.OS)
 - bash: echo $(System.DefaultWorkingDirectory)
 - bash: ls -R $(System.DefaultWorkingDirectory)
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.7'
+    architecture: 'x64'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: "**/TEST-*.xml"
